@@ -16,9 +16,12 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="/resources/plugins/jquery/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
   <!-- Bootstrap 4 -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="/resources/plugins/bootstrap/js/bootstrap.js"></script>
   <!-- AdminLTE App -->
   <script src="/resources/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
@@ -707,4 +710,3 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -19,9 +19,16 @@
             </ol>
           </div>
         </div>
+        <div class="row mb-2">
+         	<div class="col-sm-12">
+         		<ol class="breadcrumb float-sm-right">
+      				<li><button id='regBtn' type="button" class="btn btn-primary btn-xs breadcrumb-item">Register New Board</button></li>
+    			</ol>
+    		</div>
+        </div>
       </div><!-- /.container-fluid -->
     </section>
-
+    
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -41,7 +48,11 @@
 						<c:forEach items="${list}" var="board">
 							<tr>
 								<td><c:out value="${board.bno}"/></td>
-								<td><c:out value="${board.title}"></c:out></td>
+								<td>
+									<a href='/board/get?bno=<c:out value="${board.bno}"/>'>
+										<c:out value="${board.title}"/>
+									</a>
+								</td>
 								<td><c:out value="${board.writer}"/></td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}"/></td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate}"/></td>
@@ -55,9 +66,9 @@
 					     <div class="modal-dialog">
 					     	<div class="modal-content">
 					     		<div class="modal-header">
+					     			<h4 class="modal-title" id="myModalLabel">Modal title</h4> 
 					     			<button type="button" class="close" data-dismiss="modal"
-					     			        aria-hidden="true">&times;</button>
-					     			<h4 class="modal-title" id="myModalLabel">Modal title</h4>       
+					     			        aria-hidden="true">&times;</button>      
 					     		</div>
 					     		<div class="modal-body">처리가 완료되었습니다.</div>
 					     		<div class="modal-footer">
@@ -84,8 +95,10 @@
 	
 		checkModal(result);
 		
+		history.replaceState({},null,null);
+		
 		function checkModal(result){
-			if(result === ''){
+			if(result === '' || history.state){
 				return;
 			}
 			
@@ -95,6 +108,11 @@
 			
 			$("#myModal").modal("show");
 		}
+		
+		$("#regBtn").on("click", function(){
+			self.location = "/board/register";
+		});
+		
 	});
   </script>
 <%@include file="../includes/footer.jsp" %>
