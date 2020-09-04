@@ -31,6 +31,11 @@
 					<!-- <div class="panel-heading">Board Register</div> -->
 					<div class="panel-body">
 						<form role="form" action="/board/modify" method="post">
+							<input type="hidden" id="pageNum" name="pageNum" value="<c:out value='${cri.pageNum}'/>">
+							<input type="hidden" id="amount" name="amount" value="<c:out value='${cri.amount}'/>"> 	
+							<input type="hidden" id="amount" name="keyword" value="<c:out value='${cri.keyword}'/>">  
+							<input type="hidden" id="amount" name="type" value="<c:out value='${cri.type}'/>">
+							
 							<div class="form-group">
 								<label>Bno</label>
 								<input class="form-control" name='bno'
@@ -73,7 +78,7 @@
 							        class="btn btn-danger">Remove</button>
 							<button type="submit" data-oper='list' 
 							        class="btn btn-info">List</button>        
-						</form>
+						</form> 
 					</div>
 				</div>
 			</div>
@@ -103,7 +108,16 @@
 			}else if(operation === 'list'){
 				//move to list
 				formObj.attr("action","/board/list").attr("method","get");
+				var pageNumTag = $("input[name='pageNum']").clone();
+				var amountTag = $("input[name='amount']").clone();
+				var keywordTag = $("input[name='keyword']").clone();
+				var typeTag = $("input[name='type']").clone();
+				
 				formObj.empty();
+				formObj.append(pageNumTag);
+				formObj.append(amountTag);
+				formObj.append(keywordTag);
+				formObj.append(typeTag);
 			}
 			formObj.submit();
 		});
